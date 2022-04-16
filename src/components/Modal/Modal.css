@@ -1,0 +1,73 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+.modal.enter-done {
+  opacity: 1;
+  pointer-events: visible;
+}
+.modal.exit {
+  opacity: 0;
+}
+.modal-content {
+  width: 600px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+}
+.modal-header {
+  padding: 16px;
+  background-color: #f2f2f2;
+}
+.modal-footer {
+  padding: 8px;
+  text-align: right;
+}
+.modal-title {
+  margin: 0;
+  color: #5f5f5f;
+  font-size: 0.8rem;
+}
+.modal-body {
+  padding: 8px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.modal.enter-done .modal-content {
+  transform: translateY(0);
+}
+
+.modal.exit .modal-content {
+  transform: translateY(-200px);
+}
+
+.button {
+  margin: 16px;
+  width: 88px;
+  height: 32px;
+}
+
+.cancelBtn {
+  background-color: #ffffff;
+  color: #bcbcbc;
+  border: 1px solid #b6b6b6;
+}
+
+.okBtn {
+  background-color: #323232;
+  color: #bfbfbf;
+  border: none;
+}
+
+/*# sourceMappingURL=Modal.css.map */

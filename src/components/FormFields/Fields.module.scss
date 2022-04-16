@@ -1,0 +1,50 @@
+.fieldsWithLabel {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.label {
+  width: 100px;
+  font-family: "Roboto Light", sans-serif;
+  font-size: 0.8em;
+  margin: 8px 16px 8px 4px;
+}
+
+.textField {
+  width: 100%;
+  padding: 8px;
+  margin-left: 24px;
+}
+
+.radioField {
+  margin: 8px 4px 8px 0px;
+}
+
+.radioFieldLabel {
+  margin: 8px 24px 8px 0px;
+}
+
+.dateField {
+  width: 60%;
+  padding: 8px;
+  margin-left: 24px;
+}
+
+.timeField {
+  width: 30%;
+  padding: 8px;
+  margin-left: 20px;
+}
+
+.selectField {
+  width: 100%;
+  padding: 8px;
+  margin-left: 46px;
+}
+
+.error {
+  font-size: 0.8rem;
+  margin-left: 130px;
+  color: red;
+}
