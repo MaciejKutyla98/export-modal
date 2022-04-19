@@ -7,6 +7,40 @@ import RadioField from "../FormFields/RadioField";
 import SelectField from "../FormFields/SelectField";
 import styles from "./ReportForm.module.scss";
 import { validationSchema } from "../../validation/ValidationSchema";
+import { notification } from 'antd'
+import "antd/dist/antd.css";
+
+const url = "https://postman-echo.com/post";
+
+const initialValues = {
+    reportName: "",
+    format: "",
+    emailTo: "",
+    schedule: "",
+};
+
+const formatOptions = [
+    { key: "Excel", value: "excel" },
+    { key: "CSV", value: "csv" },
+];
+
+const scheduleOptions = [
+    { key: "No repeat", value: "noRepeat" },
+    { key: "Specific Date", value: "specificDate" },
+    { key: "Daily", value: "daily" },
+    { key: "Weekly", value: "weekly" },
+];
+
+const dayOption = [
+    { key: "Select a day", value: "" },
+    { key: "Monday", value: "monday" },
+    { key: "Tuesday", value: "tuesday" },
+    { key: "Wednesday", value: "wednesday" },
+    { key: "Thursday ", value: "thursday" },
+    { key: "Friday ", value: "friday" },
+    { key: "Saturday", value: "saturday" },
+    { key: "Sunday", value: "sunday" },
+];
 
 async function sendForm(url, data = {}) {
     const response = await fetch(url, {
@@ -20,47 +54,19 @@ async function sendForm(url, data = {}) {
 }
 
 const ReportForm = (props) => {
-    const url = "https://postman-echo.com/post";
-
-    const initialValues = {
-        reportName: "",
-        format: "",
-        emailTo: "",
-        schedule: "",
-    };
-
-    const formatOptions = [
-        { key: "Excel", value: "excel" },
-        { key: "CSV", value: "csv" },
-    ];
-
-    const scheduleOptions = [
-        { key: "No repeat", value: "noRepeat" },
-        { key: "Specific Date", value: "specificDate" },
-        { key: "Daily", value: "daily" },
-        { key: "Weekly", value: "weekly" },
-    ];
-
-    const dayOption = [
-        { key: "Select a day", value: "" },
-        { key: "Monday", value: "monday" },
-        { key: "Tuesday", value: "tuesday" },
-        { key: "Wednesday", value: "wednesday" },
-        { key: "Thursday ", value: "thursday" },
-        { key: "Friday ", value: "friday" },
-        { key: "Saturday", value: "saturday" },
-        { key: "Sunday", value: "sunday" },
-    ];
-
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-                props.onSubmit(values)
+
                 sendForm(url, {
                     ...values,
-                }).then(props.onClose);
+                })
+                props.onClose()
+                notification.open({
+                    message: 'The form has been successfully sent',
+                });
                 console.log(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
             }}
         >
