@@ -1,5 +1,5 @@
 import React from 'react'
-import {fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import user from '@testing-library/user-event';
 import ReportForm from "./ReportForm";
 import Modal from "../Modal/Modal";
@@ -17,11 +17,12 @@ describe('ReportForm', () => {
             </App>
         );
         clickShowModalButton();
-        await user.type(findReportName(), 'Test name');
-        await user.click(findExcelFormat())
-        await user.type(findEmail(), 'test@gmail.com');
-        await user.click(findNoRepeatSchema())
-        await clickOkButton();
+
+         user.type(findReportName(), 'Test name');
+         user.click(findExcelFormat())
+         user.type(findEmail(), 'test@gmail.com');
+         user.click(findNoRepeatSchema())
+        clickOkButton();
 
         await waitFor(() => {
             expect(handleSubmit).toHaveBeenCalledWith({
