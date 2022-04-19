@@ -57,9 +57,9 @@ const ReportForm = (props) => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-                sendForm(url, {
-                    ...values,
-                }).then(props.onClose);
+                // sendForm(url, {
+                //     ...values,
+                // }).then(props.onClose);
                 console.log(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
             }}
         >

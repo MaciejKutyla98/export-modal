@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./Modal.scss";
+import ReportForm from "../ReportForm/ReportForm";
 
 const Modal = (props) => {
     const closeOnEscapeKeyDown = (e) => {
@@ -17,7 +18,7 @@ const Modal = (props) => {
         };
     }, []);
 
-    return ReactDOM.createPortal(
+    return (
         <CSSTransition
             in={props.show}
             unmountOnExit
@@ -28,7 +29,9 @@ const Modal = (props) => {
                     <div className="modal-header">
                         <h4 className="modal-title">{props.title}</h4>
                     </div>
-                    <div className="modal-body">{props.children}</div>
+                    <div className="modal-body">
+                        {props.children}
+                    </div>
                     <div className="modal-footer">
                         <button onClick={props.onClose} className="button cancelBtn">
                             Cancel
@@ -39,8 +42,7 @@ const Modal = (props) => {
                     </div>
                 </div>
             </div>
-        </CSSTransition>,
-        document.getElementById("root")
+        </CSSTransition>
     );
 };
 
