@@ -11,5 +11,4 @@ Node version: **14.17.6** and npm version: **6.14.15**. I have used **[Ant Desig
 3. Run `npm run build`
 4. Working version of the app should be viewable at **http://localhost:3000**
 
-## Demo
-Live preview is available here: **[export-modal heroku](https://export-modal98.herokuapp.com/)**
+
